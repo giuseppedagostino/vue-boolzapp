@@ -1,3 +1,9 @@
+/* COLORI */
+/* verde #009688 */
+/* grigio chiaro #D9DBD4 */
+/* grigio chiarissimo #EDEDED */
+/* celeste #9DE1FE */
+
 /* REGOLE COMUNI */
 * {
   box-sizing: border-box;
@@ -16,44 +22,104 @@ body {
   transform: translate(-50%, -50%);
   height: 95vh;
   width: 80vW;
-  border: 5px solid dodgerblue;
   /* flex */
   display: flex;
+}
+input {
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 10px;
+}
+img {
+  height: 50px;
 }
 
 /* CONTACTS */
 #contacts {
   width: 30%;
-  background-color: white;
 }
+/* contacts header */
 #contacts header {
   width: 100%;
   height: 70px;
-  border: 2px solid black;
+  background-color: #EDEDED;
+  /* flex */
+  display: flex;
 }
+#contacts header div:nth-of-type(1) {
+  padding: 10px;
+  height: 100%;
+  width: calc(100% - 100px);
+  /* flex */
+  display: flex;
+  align-items: center;
+}
+#contacts header div:nth-of-type(1) h5 {
+  margin-left: 10px;
+}
+#contacts header div:nth-of-type(2) {
+  height: 100%;
+  width: 100px;
+  border: 2px solid black;
+  /* flex */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* contacts main */
 #contacts main {
   width: 100%;
   height: calc(100% - 70px);
-  border: 2px solid black;
+  background-color: white;
 }
 
 /* CHAT */
 #chat{
   width: 70%;
-  background-color: bisque;
 }
+/* chat header */
 #chat header {
   width: 100%;
   height: 70px;
-  border: 2px solid black;
+  background-color: #EDEDED;
+  /* flex */
+  display: flex;
 }
+#chat header div:nth-of-type(1) {
+  padding: 10px;
+  height: 100%;
+  width: calc(100% - 100px);
+  /* flex */
+  display: flex;
+  align-items: center;
+}
+#chat header div:nth-of-type(1) > div {
+  font-size: 14px;
+  margin-left: 10px;
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#chat header div:nth-of-type(2) {
+  height: 100%;
+  width: 100px;
+  border: 2px solid black;
+  /* flex */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* chat main */
 #chat main {
   width: 100%;
   height: calc(100% - 140px);
-  border: 2px solid black;
+  background-image: url(../img/sfondo.jpg);
+  background-size: contain;
 }
 #chat footer {
   width: 100%;
   height: 70px;
-  border: 2px solid black;
+  background-color: #EDEDED;
 }
