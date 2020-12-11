@@ -21,8 +21,8 @@
         <!-- contacts header -->
         <header>
           <div>
-            <img src="img/avatar_1.webp" alt="avatar">
-            <h5>Giuseppe D'Agostino</h5>
+            <img src="img/user.webp" alt="avatar">
+            <p>Giuseppe D'Agostino</p>
           </div>
           <div>
             <i class="fas fa-circle-notch"></i>
@@ -33,7 +33,26 @@
 
         <!-- contacts main -->
         <main>
-          <h3>contacts main</h3>
+          <div id="notification">
+            <i class="fas fa-bell-slash"></i>
+            <div>
+              <p class="semibold">Ricevi noifiche di nuovi messaggi</p>
+              <a href="#">Attiva notifiche desktop</a>
+            </div>
+          </div>
+
+          <div>
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
+
+          <!-- lista contatti -->
+          <ul>
+            <li v-for="(contact, index) in contacts">
+              <img :src="getAvatar(contact)" alt="avatar">
+              <p class="semibold">{{ contact.name }}</p>
+              <span>date</span>
+            </li>
+          </ul>
         </main>
       </section>
       <!-- fine sezione destra -->
@@ -43,9 +62,9 @@
         <!-- chat header -->
         <header>
           <div>
-            <img src="img/avatar_2.webp" alt="avatar">
+            <img src="img/_1.png" alt="avatar">
             <div>
-              <p>Gianluca</p>
+              <p class="semibold">Gianluca</p>
               <p>Ultimo accesso oggi alle 13:07</p>
             </div>
           </div>
@@ -58,13 +77,13 @@
 
         <!-- chat main -->
         <main>
-          <div class="white_message">
+          <div class="received_message">
             <p>Ciao Giuseppe, hai studiato la teoria di Vue?</p>
           </div>
-          <div class="white_message">
+          <div class="received_message">
             <p>Come procede con l'esercizio?</p>
           </div>
-          <div class="green_message">
+          <div class="sent_message">
             <p>Si Gianluca ho studiato e per ora con l'esercizio tutto apposto... trattandosi solo di layout!</p>
           </div>
         </main>
