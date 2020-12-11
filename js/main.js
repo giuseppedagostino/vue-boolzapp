@@ -57,7 +57,7 @@ var app = new Vue({
 
       // terzo avatar
       {
-        name: "Michela",
+        name: "Michele",
         avatar: "_3",
         visible: true,
         messages: [

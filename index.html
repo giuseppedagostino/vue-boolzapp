@@ -21,7 +21,7 @@
         <!-- contacts header -->
         <header>
           <div>
-            <img src="img/user.webp" alt="avatar">
+            <img src="img/giuseppe.jpg" alt="user">
             <p>Giuseppe D'Agostino</p>
           </div>
           <div>
@@ -34,23 +34,28 @@
         <!-- contacts main -->
         <main>
           <div id="notification">
-            <i class="fas fa-bell-slash"></i>
+            <div>
+              <i class="fas fa-bell-slash"></i>
+            </div>
             <div>
               <p class="semibold">Ricevi noifiche di nuovi messaggi</p>
               <a href="#">Attiva notifiche desktop</a>
             </div>
           </div>
 
-          <div>
+          <div id="search">
+            <button type="button">
+              <i class="fas fa-search"></i>
+            </button>
             <input type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
 
           <!-- lista contatti -->
           <ul>
-            <li v-for="(contact, index) in contacts">
+            <li v-for="(contact) in contacts">
               <img :src="getAvatar(contact)" alt="avatar">
               <p class="semibold">{{ contact.name }}</p>
-              <span>date</span>
+              <span>data</span>
             </li>
           </ul>
         </main>
@@ -79,12 +84,15 @@
         <main>
           <div class="received_message">
             <p>Ciao Giuseppe, hai studiato la teoria di Vue?</p>
+            <span>data</span>
           </div>
           <div class="received_message">
             <p>Come procede con l'esercizio?</p>
+            <span>data</span>
           </div>
           <div class="sent_message">
             <p>Si Gianluca ho studiato e per ora con l'esercizio tutto apposto... trattandosi solo di layout!</p>
+            <span>data</span>
           </div>
         </main>
 

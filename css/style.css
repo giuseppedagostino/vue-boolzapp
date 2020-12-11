@@ -1,5 +1,6 @@
 /* COLORI */
 /* verde #009688 */
+/* verde chiaro #DCF8C6 */
 /* grigio chiaro #D9DBD4 */
 /* grigio chiarissimo #EDEDED */
 /* celeste #9DE1FE */
@@ -12,8 +13,8 @@
   font-family: 'Montserrat', sans-serif;
 }
 body {
-  font-size: 16px;
-  background-color: lightgrey;
+  font-size: 14px;
+  background-color: #009688;
   position: relative;
 }
 #root {
@@ -28,7 +29,7 @@ body {
 }
 input {
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: white;
   border: 0;
   border-radius: 10px;
@@ -38,6 +39,7 @@ input:focus {
 }
 img {
   height: 50px;
+  border-radius: 50%;
 }
 i {
   color: grey;
@@ -56,7 +58,7 @@ i:hover {
   margin: 5px 0;
   padding: 10px;
   max-width: 60%;
-  background-color: lightgreen;
+  background-color: #DCF8C6;
   border-radius: 10px;
 }
 .received_message {
@@ -90,6 +92,12 @@ li span {
 .semibold {
   font-weight: 500;
 }
+.active {
+  background-color: lightgrey;
+}
+span {
+  opacity: 0.5;
+}
 
 /* CONTACTS */
 #contacts {
@@ -100,6 +108,7 @@ li span {
   width: 100%;
   height: 70px;
   background-color: #EDEDED;
+  border-right: 1px solid rgba(211, 211, 211, 0.5);
   /* flex */
   display: flex;
 }
@@ -136,19 +145,26 @@ li span {
   display: flex;
   align-items: center;
 }
-/* #notification i {
+#notification div:first-child {
+  position: relative;
   height: 40px;
   width: 40px;
-  padding: 10px;
-  border-radius: 50%;
   background-color: white;
-} */
+  border-radius: 50%;
+}
+#notification i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #9DE1FE;
+}
 #notification p:first-child {
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 14px;
 }
 #notification a {
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 12px;
   color: black;
   opacity: 0.6;
@@ -156,12 +172,23 @@ li span {
 #notification a:hover {
   opacity: 1;
 }
-#contacts main div:nth-of-type(2) {
+#search {
   padding: 10px;
-  background-color: #D9DBD4;
+  background-color: #EDEDED;
+  /* flex */
+  display: flex;
 }
-#contacts input {
-  width: 100%;
+#search button {
+  position: relative;
+  width: 15%;
+  background-color: white;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  border-right: 1px solid rgba(211, 211, 211, 0.5);
+}
+#search input {
+  width: 85%;
+  border-radius: 0px 10px 10px 0;
 }
 
 /* CHAT */
@@ -213,6 +240,16 @@ li span {
   /* flex */
   display: flex;
   flex-direction: column;
+}
+#chat main div {
+  position: relative;
+  /* flex */
+  display: flex;
+  flex-direction: column;
+}
+#chat main span {
+  margin-top: 5px;
+  align-self: flex-end;
 }
 #chat footer {
   width: 100%;
