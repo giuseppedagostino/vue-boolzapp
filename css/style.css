@@ -86,9 +86,6 @@ li {
   display: flex;
   align-items: center;
 }
-/* ul li:first-child {
-  background-color: lightgrey;
-} */
 li p {
   margin-left: 10px;
 }
@@ -106,10 +103,19 @@ li span {
 span {
   opacity: 0.5;
 }
+.message_text {
+  margin-top: 5px;
+  max-width: 200px;
+  height: 20px;
+  /* queste le 3 istruzioni per nascondere il testo */
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
 
 /* CONTACTS */
 #contacts {
-  width: 30%;
+  width: 35%;
 }
 /* contacts header */
 #contacts header {
@@ -201,7 +207,7 @@ span {
 
 /* CHAT */
 #chat{
-  width: 70%;
+  width: 65%;
 }
 /* chat header */
 #chat header {

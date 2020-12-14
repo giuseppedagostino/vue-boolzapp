@@ -52,7 +52,7 @@
 
           <!-- lista contatti -->
           <ul>
-            <li v-for="(contact) in contacts">
+            <li v-for="(contact, index) in contacts">
               <img :src="getAvatar(contact)" alt="avatar">
 
               <div>
@@ -61,15 +61,11 @@
                   {{ contact.name }}
                 </p>
                 <!-- stampo il messaggio -->
-                <!-- <p v-for="(message, index) in contact.messages">
-                  {{ message.text }}
-                </p> -->
+                <!-- però dovrei tagliare il messaggio oltre una certa lunghezza...  -->
+                <p class="message_text">{{ contact.messages.slice(-1)[0].text }}</p>
+                <!-- stampo la data -->
+                <span>{{ contact.messages.slice(-1)[0].date }}</span>
               </div>
-
-              <!-- stampo la data -->
-              <!-- <span v-for="(message, index) in contact.messages">
-                {{ message.date }}
-              </span> -->
             </li>
           </ul>
         </main>
@@ -98,7 +94,8 @@
         <main>
           <div :class="messageClass" v-for="(contact) in contacts">
             <p>{{ contact.name }}</p>
-            <p v-for="(message, index) in contact.messages">{{ index }} {{ message.text }}</p>
+            <p>{{  }}</p>
+            <!-- <p v-for="(message, index) in contact.messages">{{ index }} {{ message.text }}</p> -->
           </div>
         </main>
 

@@ -110,9 +110,9 @@ var app = new Vue({
 
   },
   computed: {
-    // lastItem: function() {
-    //   return this.contacts.slice(-1)[0];
-    // }
+    lastItem: function() {
+      return this.contacts.slice(-1)[0];
+    }
   },
   methods: {
     // prende il nome dell'avatar dal data
