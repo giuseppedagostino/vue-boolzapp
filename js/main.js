@@ -118,7 +118,14 @@ var app = new Vue({
     // questo è l'utente selezionato, inizialmente vuoto
     selectedUser: {},
     // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato
-    activeIndex: null
+    activeIndex: null,
+    // definisco l'oggetto nuovo messaggio
+    newMessageText: "",
+    newMessage: {
+      date: "boh",
+      // newMessageText: newMessageText,
+      status: "received",
+    }
 
   },
   methods: {
@@ -134,7 +141,11 @@ var app = new Vue({
     // attribuisce la classe active alla chat cliccata
     activeContact: function(index) {
       this.activeIndex = index;
-      console.log("mh!");
+    },
+    addNewMessage: function() {
+      console.log(this.newMessageText);
+      // this.newMessage.push(this.newMessageText);
+      this.newMessageText = "";
     }
   }
 });

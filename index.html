@@ -101,7 +101,7 @@
         <!-- chat footer -->
         <footer>
           <i class="far fa-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keydown.enter="addNewMessage">
           <i class="fas fa-microphone"></i>
         </footer>
       </section>
