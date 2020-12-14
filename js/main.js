@@ -28,6 +28,11 @@ var app = new Vue({
             text: "Si Gianluca ho studiato e per ora con l'esercizio tutto apposto... trattandosi solo di layout!",
             status: "sent"
           },
+          {
+            date: "12/12/2020 17:13:30",
+            text: "Come non detto, la seconda milestone è un vero disastro...",
+            status: "sent"
+          }
         ]
       },
 
@@ -98,11 +103,22 @@ var app = new Vue({
         ]
       },
 
-    ]
+    ],
+
+    messageClass: "sent_message",
+    activeItem: "active",
+
+  },
+  computed: {
+    // lastItem: function() {
+    //   return this.contacts.slice(-1)[0];
+    // }
   },
   methods: {
+    // prende il nome dell'avatar dal data
     getAvatar: function(contact) {
       return `img/${contact.avatar}.png`;
     }
+    //
   }
 });

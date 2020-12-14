@@ -13,9 +13,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 body {
-  font-size: 14px;
-  background-color: #009688;
   position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  background-image: linear-gradient(to bottom, #009688 0%, #009688 15%, #D9DBD4 15%, #D9DBD4 100%);
 }
 #root {
   position: absolute;
@@ -35,6 +37,9 @@ input {
   border-radius: 10px;
 }
 input:focus {
+  outline: none;
+}
+button:focus {
   outline: none;
 }
 img {
@@ -75,12 +80,15 @@ ul {
 li {
   position: relative;
   padding: 10px;
-  height: 70px;
+  /* height: 70px; */
   border-bottom: 1px solid rgba(211, 211, 211, 0.5);
   /* flex */
   display: flex;
   align-items: center;
 }
+/* ul li:first-child {
+  background-color: lightgrey;
+} */
 li p {
   margin-left: 10px;
 }
@@ -232,6 +240,7 @@ span {
 }
 /* chat main */
 #chat main {
+  overflow-y: scroll;
   padding: 0 80px;
   width: 100%;
   height: calc(100% - 140px);

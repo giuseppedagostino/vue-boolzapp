@@ -54,8 +54,22 @@
           <ul>
             <li v-for="(contact) in contacts">
               <img :src="getAvatar(contact)" alt="avatar">
-              <p class="semibold">{{ contact.name }}</p>
-              <span>data</span>
+
+              <div>
+                <!-- stampo il nome -->
+                <p class="semibold">
+                  {{ contact.name }}
+                </p>
+                <!-- stampo il messaggio -->
+                <!-- <p v-for="(message, index) in contact.messages">
+                  {{ message.text }}
+                </p> -->
+              </div>
+
+              <!-- stampo la data -->
+              <!-- <span v-for="(message, index) in contact.messages">
+                {{ message.date }}
+              </span> -->
             </li>
           </ul>
         </main>
@@ -82,17 +96,9 @@
 
         <!-- chat main -->
         <main>
-          <div class="received_message">
-            <p>Ciao Giuseppe, hai studiato la teoria di Vue?</p>
-            <span>data</span>
-          </div>
-          <div class="received_message">
-            <p>Come procede con l'esercizio?</p>
-            <span>data</span>
-          </div>
-          <div class="sent_message">
-            <p>Si Gianluca ho studiato e per ora con l'esercizio tutto apposto... trattandosi solo di layout!</p>
-            <span>data</span>
+          <div :class="messageClass" v-for="(contact) in contacts">
+            <p>{{ contact.name }}</p>
+            <p v-for="(message, index) in contact.messages">{{ index }} {{ message[1].text }}</p>
           </div>
         </main>
 
