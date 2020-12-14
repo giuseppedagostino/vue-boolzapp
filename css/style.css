@@ -14,10 +14,10 @@
 }
 body {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   font-size: 14px;
-  background-image: linear-gradient(to bottom, #009688 0%, #009688 15%, #D9DBD4 15%, #D9DBD4 100%);
+  background-image: linear-gradient(to bottom, #009688 0%, #009688 17.5%, #D9DBD4 17.5%, #D9DBD4 100%);
 }
 #root {
   position: absolute;

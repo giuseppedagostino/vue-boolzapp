@@ -98,7 +98,7 @@
         <main>
           <div :class="messageClass" v-for="(contact) in contacts">
             <p>{{ contact.name }}</p>
-            <p v-for="(message, index) in contact.messages">{{ index }} {{ message[1].text }}</p>
+            <p v-for="(message, index) in contact.messages">{{ index }} {{ message.text }}</p>
           </div>
         </main>
 
