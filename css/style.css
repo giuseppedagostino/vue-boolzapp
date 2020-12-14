@@ -1,7 +1,7 @@
 /* COLORI */
 /* verde #009688 */
 /* verde chiaro #DCF8C6 */
-/* grigio chiaro #D9DBD4 */
+/* grigio chiaro (icone) #D9DBD4 */
 /* grigio chiarissimo #EDEDED */
 /* celeste #9DE1FE */
 
@@ -98,7 +98,7 @@ li span {
   font-weight: 500;
 }
 .active {
-  background-color: lightgrey;
+  background-color: #EDEDED;
 }
 span {
   font-size: 12px;
@@ -176,6 +176,9 @@ span {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #9DE1FE;
+}
+#notification i:hover {
+  cursor: default;
 }
 #notification p:first-child {
   margin-left: 15px;

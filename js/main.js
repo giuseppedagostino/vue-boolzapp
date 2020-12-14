@@ -1,6 +1,6 @@
-// MILESTONE 2
-// Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
-// Click sul contatto mostra la conversazione del contatto cliccato
+// MILESTONE 3
+// Aggiunta di un messaggio : l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+//  Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
 var app = new Vue({
   el: "#root",
@@ -31,6 +31,16 @@ var app = new Vue({
           {
             date: "12/12/2020 17:13:30",
             text: "Come non detto, la seconda milestone è un vero disastro...",
+            status: "sent"
+          },
+          {
+            date: "14/12/2020 18:50:00",
+            text: "Va meglio dopo il recap di Adriano?",
+            status: "received"
+          },
+          {
+            date: "14/12/2020 22:06:00",
+            text: "Senti sì, va meglio, sono finalmente riuscito a gestire la classe dei messaggi e la comparsa dei messaggi della chat selezionata, ma sto ancora cercando di capire come gestire l'active!",
             status: "sent"
           }
         ]
@@ -107,6 +117,8 @@ var app = new Vue({
 
     // questo è l'utente selezionato, inizialmente vuoto
     selectedUser: {},
+    // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato
+    activeIndex: null
 
   },
   methods: {
@@ -118,6 +130,11 @@ var app = new Vue({
     getUser: function(indexUser) {
       this.selectedUser = this.contacts[indexUser];
       console.log(this.selectedUser);
+    },
+    // attribuisce la classe active alla chat cliccata
+    activeContact: function(index) {
+      this.activeIndex = index;
+      console.log("mh!");
     }
   }
 });

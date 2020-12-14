@@ -52,7 +52,7 @@
 
           <!-- lista contatti -->
           <ul>
-            <li v-for="(contact, index) in contacts" @click="getUser(index)">
+            <li v-for="(contact, index) in contacts" @click="getUser(index); activeContact(index)" :class="(index == activeIndex) ? 'active' : null ">
               <img :src="getAvatar(contact)" alt="avatar">
 
               <div>
@@ -94,7 +94,6 @@
           <!-- il ternario all'interno della classe mi permette con semplicità di selezionarne una in base allo status del messaggio -->
           <div :class="(message.status == 'received') ? 'received' : 'sent' " v-for="(message) in selectedUser.messages">
             <p>{{ message.text }}</p>
-            <p>{{ message.status }}</p>
             <span>{{ message.date }}</span>
           </div>
         </main>
