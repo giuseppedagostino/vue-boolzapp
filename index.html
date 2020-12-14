@@ -52,7 +52,7 @@
 
           <!-- lista contatti -->
           <ul>
-            <li v-for="(contact) in contacts">
+            <li v-for="(contact, index) in contacts" @click="getUser(index)">
               <img :src="getAvatar(contact)" alt="avatar">
 
               <div>
@@ -91,9 +91,9 @@
 
         <!-- chat main -->
         <main>
-          <div :class="messageClass" v-for="(contact) in contacts">
-            <p v-if="">{{ contact.messages[0] }}</p>
-            <!-- <p>{{ contacts[0].messages[0].text }}</p> -->
+          <div :class="messageClass" v-for="(message) in selectedUser.messages">
+            <p>{{ message.text }}</p>
+            <span></span>
           </div>
         </main>
 

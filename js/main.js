@@ -105,19 +105,21 @@ var app = new Vue({
 
     ],
 
+    // questo è l'utente selezionato, inizialmente vuoto
+    selectedUser: {},
     messageClass: "sent_message",
-    activeItem: "active",
+    // activeItem: "active",
 
-  },
-  computed: {
-    // lastItem: function() {
-    //   return this.contacts.slice(-1)[0];
-    // }
   },
   methods: {
     // prende il nome dell'avatar dal data
     getAvatar: function(contact) {
       return `img/${contact.avatar}.png`;
+    },
+    // prende l'utente corretto
+    getUser: function(indexUser) {
+      this.selectedUser = this.contacts[indexUser];
+      console.log(this.selectedUser);
     }
   }
 });
