@@ -58,7 +58,7 @@ i:hover {
   transform: scale(1.2);
   opacity: 1;
 }
-.sent_message {
+.sent {
   align-self: flex-end;
   margin: 5px 0;
   padding: 10px;
@@ -66,7 +66,7 @@ i:hover {
   background-color: #DCF8C6;
   border-radius: 10px;
 }
-.received_message {
+.received {
   align-self: flex-start;
   margin: 5px 0;
   padding: 10px;
@@ -101,6 +101,7 @@ li span {
   background-color: lightgrey;
 }
 span {
+  font-size: 12px;
   opacity: 0.5;
 }
 .message_text {
@@ -111,6 +112,9 @@ span {
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+}
+#contacts li:hover {
+  cursor: pointer;
 }
 
 /* CONTACTS */

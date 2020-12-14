@@ -7,7 +7,7 @@ var app = new Vue({
   data: {
     contacts: [
 
-      // primo avatar
+      // primo contatto
       {
         name: "Gianluca",
         avatar: "_1",
@@ -36,7 +36,7 @@ var app = new Vue({
         ]
       },
 
-      // secondo avatar
+      // secondo contatto
       {
         name: "Chiara",
         avatar: "_2",
@@ -60,7 +60,7 @@ var app = new Vue({
         ]
       },
 
-      // terzo avatar
+      // terzo contatto
       {
         name: "Michele",
         avatar: "_3",
@@ -84,7 +84,7 @@ var app = new Vue({
         ]
       },
 
-      // quarto avatar
+      // quarto contatto
       {
         name: "Luisa",
         avatar: "_4",
@@ -107,8 +107,6 @@ var app = new Vue({
 
     // questo è l'utente selezionato, inizialmente vuoto
     selectedUser: {},
-    messageClass: "sent_message",
-    // activeItem: "active",
 
   },
   methods: {

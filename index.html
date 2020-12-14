@@ -91,9 +91,11 @@
 
         <!-- chat main -->
         <main>
-          <div :class="messageClass" v-for="(message) in selectedUser.messages">
+          <!-- il ternario all'interno della classe mi permette con semplicità di selezionarne una in base allo status del messaggio -->
+          <div :class="(message.status == 'received') ? 'received' : 'sent' " v-for="(message) in selectedUser.messages">
             <p>{{ message.text }}</p>
-            <span></span>
+            <p>{{ message.status }}</p>
+            <span>{{ message.date }}</span>
           </div>
         </main>
 
