@@ -49,12 +49,12 @@
             <button type="button">
               <i class="fas fa-search"></i>
             </button>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputContact" @keydown.enter="searchContact">
           </div>
 
           <!-- lista contatti -->
           <ul>
-            <li v-for="(contact, index) in contacts" @click="getUser(index); activeContact(index)" :class="(index == activeIndex) ? 'active' : null ">
+            <li v-for="(contact, index) in filteredContacts" @click="getUser(index); activeContact(index)" :class="(index == activeIndex) ? 'active' : null ">
               <img :src="getAvatar(contact)" alt="avatar">
 
               <div>

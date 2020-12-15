@@ -113,14 +113,18 @@ var app = new Vue({
       },
 
     ],
-
+    filteredContacts: [],
     // questo è l'utente selezionato, inizialmente vuoto
     selectedUser: {},
     // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato, l'ho inizializzato l'indice a zero perchè sennò crashava tutto rilevando l'indice null per comporre l'header della chat
     activeIndex: 0,
     // definisco l'oggetto nuovo messaggio
     newMessageText: "",
+    inputContact: "",
 
+  },
+  created: function() {
+    this.filteredContacts = this.contacts;
   },
   methods: {
     // prende il nome dell'avatar dal data
@@ -161,5 +165,20 @@ var app = new Vue({
       }, 3000);
     },
 
+    searchContact: function() {
+      // Prendo il valore dall'input
+      // Scorro tutti i miei contatti (quale usare? map, filter, forEach) => filter
+      // Trovo tutti i contatti che hanno come nome quello che ho scritto nell'input
+          // Devoconfrotare nome di ogni contatto con inputContact
+      // Stampo i contatti filtrati
+      console.log(this.inputContact);
+      if (this.inputContact != "") {
+        this.filteredContacts = this.contacts.filter((contact) => {
+          return contact.name.toLowerCase().includes(this.inputContact.toLowerCase());
+        });
+      } else {
+        this.filteredContacts = this.contacts;
+      }
+    }
   }
 });
