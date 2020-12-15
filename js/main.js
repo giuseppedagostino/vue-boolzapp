@@ -1,6 +1,5 @@
-// MILESTONE 3
-// Aggiunta di un messaggio : l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-//  Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+// MILESTONE 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 var app = new Vue({
   el: "#root",
@@ -137,10 +136,30 @@ var app = new Vue({
     activeContact: function(index) {
       this.activeIndex = index;
     },
+
     addNewMessage: function() {
-      console.log(this.newMessageText);
-      // this.newMessage.push(this.newMessageText);
-      this.newMessageText = "";
-    }
+      var newUserMessage = {
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+        text: this.newMessageText,
+        status: "sent",
+      };
+      console.log(newUserMessage);
+      // pusho nell'array di messaggi cosicchè venga sincronizzato e stampato
+      if (this.newMessageText != "") {
+        this.contacts[this.activeIndex].messages.push(newUserMessage);
+        this.newMessageText = "";
+      };
+      // risposta automatica del bot
+      setTimeout(function() {
+        var newBotMessage = {
+          date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+          text: "Ok, va bene.",
+          status: "received",
+        };
+        // pusho tra i messaggi anche quello del bot
+        app.contacts[app.activeIndex].messages.push(newBotMessage);
+      }, 3000);
+    },
+
   }
 });
