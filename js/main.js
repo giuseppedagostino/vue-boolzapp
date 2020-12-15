@@ -1,5 +1,6 @@
-// MILESTONE 4
-// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+// MILESTONE 5
+// Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
 var app = new Vue({
   el: "#root",
@@ -113,37 +114,43 @@ var app = new Vue({
       },
 
     ],
+    // array di contatti filtrati, inizialmente vuoto
     filteredContacts: [],
-    // questo è l'utente selezionato, inizialmente vuoto
+    // utente selezionato, inizialmente vuoto
     selectedUser: {},
-    // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato, l'ho inizializzato l'indice a zero perchè sennò crashava tutto rilevando l'indice null per comporre l'header della chat
+    // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato, inizializzato a zero (primo contatto)
     activeIndex: 0,
-    // definisco l'oggetto nuovo messaggio
+    // il testo inserito nell'input del chat footer viene salvato in questa variabile
     newMessageText: "",
+    // il nome del contatto che si vuole cercare, digitato nel #contacts main #search viene salvato in questa variabile
     inputContact: "",
 
   },
+  // le funzioni created vengono chiamate immediatamente all'avvio dell'app
+  // nell'html il v-for cerca i contatti nell'array dei contatti filtrati, che inizialmente è vuoto: non mostrerebbe nulla se nel created non lo rendessi uguale a tutto l'array di contatti, per mostrarli tutti all'inizio
   created: function() {
     this.filteredContacts = this.contacts;
   },
   methods: {
-    // prende il nome dell'avatar dal data
+    // prende il nome dell'avatar dal data, utilizzata nella ul del contact main
     getAvatar: function(contact) {
       return `img/${contact.avatar}.png`;
     },
-    // prende l'utente corretto
+    // prende l'utente corretto dall'array di contatti sfruttando l'indice, per mostrare i messaggi corretti nella chat
     getUser: function(indexUser) {
       this.selectedUser = this.contacts[indexUser];
       console.log(this.selectedUser);
     },
-    // attribuisce la classe active alla chat cliccata
+    // attribuisce la classe active alla chat cliccata per farle cambiare aspetto assieme al ternario
     activeContact: function(index) {
       this.activeIndex = index;
     },
-
+    // aggiunge il nuovo oggetto messaggio dell'array, lo stampa in chat e stampa anche la risposta automatica dopo 3 secondi
     addNewMessage: function() {
+      // creo l'oggetto
       var newUserMessage = {
         date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+        // ovviamente prendo il testo inserito dalla variabile in data
         text: this.newMessageText,
         status: "sent",
       };
@@ -151,6 +158,7 @@ var app = new Vue({
       // pusho nell'array di messaggi cosicchè venga sincronizzato e stampato
       if (this.newMessageText != "") {
         this.contacts[this.activeIndex].messages.push(newUserMessage);
+        // svuoto il campo
         this.newMessageText = "";
       };
       // risposta automatica del bot
@@ -160,25 +168,25 @@ var app = new Vue({
           text: "Ok, va bene.",
           status: "received",
         };
-        // pusho tra i messaggi anche quello del bot
+        // pusho tra i messaggi anche quello del bot per stamparla
         app.contacts[app.activeIndex].messages.push(newBotMessage);
       }, 3000);
     },
-
+    // effettua una ricerca tra i contatti (sezione sinistra)
     searchContact: function() {
-      // Prendo il valore dall'input
-      // Scorro tutti i miei contatti (quale usare? map, filter, forEach) => filter
-      // Trovo tutti i contatti che hanno come nome quello che ho scritto nell'input
-          // Devoconfrotare nome di ogni contatto con inputContact
-      // Stampo i contatti filtrati
+      // Prendo il valore dall'input, scorro i miei contatti con le funzioni filter ed includes e trovo tutti i contatti che hanno lettere/parole inserite nell'input
+          // Devo confrotare nome di ogni contatto con inputContact
+      // Stampo i contatti filtrati in automatico grazie alla sincronizzazione del v-for con l'array di contatti filtrati inserita in precedenza
       console.log(this.inputContact);
       if (this.inputContact != "") {
         this.filteredContacts = this.contacts.filter((contact) => {
           return contact.name.toLowerCase().includes(this.inputContact.toLowerCase());
         });
       } else {
+        // se l'input è vuoto, ritorna tutti i contatti presenti
         this.filteredContacts = this.contacts;
       }
     }
+
   }
 });

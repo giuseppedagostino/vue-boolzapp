@@ -58,22 +58,6 @@ i:hover {
   transform: scale(1.2);
   opacity: 1;
 }
-.sent {
-  align-self: flex-end;
-  margin: 5px 0;
-  padding: 10px;
-  max-width: 60%;
-  background-color: #DCF8C6;
-  border-radius: 10px;
-}
-.received {
-  align-self: flex-start;
-  margin: 5px 0;
-  padding: 10px;
-  max-width: 60%;
-  background-color: white;
-  border-radius: 10px;
-}
 ul {
   list-style: none;
 }
@@ -97,16 +81,11 @@ li span {
   top: 10px;
   right: 10px;
 }
-.semibold {
-  font-weight: 500;
-}
-.active {
-  background-color: #EDEDED;
-}
 span {
   font-size: 12px;
   opacity: 0.5;
 }
+/* classi */
 .message_text {
   margin-top: 5px;
   max-width: 200px;
@@ -116,13 +95,36 @@ span {
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-#contacts li:hover {
-  cursor: pointer;
+.semibold {
+  font-weight: 500;
 }
+.active {
+  background-color: #EDEDED;
+}
+.sent {
+  align-self: flex-end;
+  margin: 5px 0;
+  padding: 10px;
+  max-width: 60%;
+  background-color: #DCF8C6;
+  border-radius: 10px;
+}
+.received {
+  align-self: flex-start;
+  margin: 5px 0;
+  padding: 10px;
+  max-width: 60%;
+  background-color: white;
+  border-radius: 10px;
+}
+
 
 /* CONTACTS */
 #contacts {
   width: 35%;
+}
+#contacts li:hover {
+  cursor: pointer;
 }
 /* contacts header */
 #contacts header {

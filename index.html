@@ -46,7 +46,8 @@
           </div>
 
           <div id="search">
-            <button type="button">
+            <!-- richiamo la funzione per la ricerca del contatto sia sul pulsante che sull'input -->
+            <button type="button" @click="searchContact">
               <i class="fas fa-search"></i>
             </button>
             <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputContact" @keydown.enter="searchContact">
@@ -54,9 +55,10 @@
 
           <!-- lista contatti -->
           <ul>
+            <!-- faccio una ricerca con v-for nei contatti filtrati che, grazie alla computed, equivalgono all'array contacts quando non filtro -->
             <li v-for="(contact, index) in filteredContacts" @click="getUser(index); activeContact(index)" :class="(index == activeIndex) ? 'active' : null ">
+              <!-- stampo l'avatar -->
               <img :src="getAvatar(contact)" alt="avatar">
-
               <div>
                 <!-- stampo il nome -->
                 <p class="semibold">
@@ -67,6 +69,7 @@
                 <!-- stampo la data -->
                 <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
               </div>
+
             </li>
           </ul>
         </main>
@@ -78,9 +81,9 @@
         <!-- chat header -->
         <header>
           <div>
+            <!-- utente nell'header della chat -->
             <img :src="'img/' + contacts[activeIndex].avatar + '.png'" alt="avatar">
             <div>
-              <!-- utente nell'header della chat -->
               <p class="semibold">{{ contacts[activeIndex].name }}</p>
               <p>Ultimo accesso {{ contacts[activeIndex].messages[contacts[activeIndex].messages.length -1].date }}</p>
             </div>
@@ -94,7 +97,8 @@
 
         <!-- chat main -->
         <main>
-          <!-- il ternario all'interno della classe mi permette con semplicità di selezionarne una in base allo status del messaggio -->
+          <!-- CLASSE - il ternario all'interno della classe mi permette con semplicità di selezionarne una in base allo status del messaggio -->
+          <!-- STAMPA - il v-for scorre gli array messages dell'utente selezionato -->
           <div :class="(message.status == 'received') ? 'received' : 'sent' " v-for="(message) in selectedUser.messages">
             <p>{{ message.text }}</p>
             <span>{{ message.date }}</span>
@@ -104,6 +108,7 @@
         <!-- chat footer -->
         <footer>
           <i class="far fa-smile"></i>
+          <!-- il valore inserito qui costituisce il testo del nuovo oggetto creato con la funzione addNewMessage -->
           <input type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keydown.enter="addNewMessage">
           <i class="fas fa-microphone"></i>
         </footer>
