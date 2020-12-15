@@ -86,6 +86,9 @@ li {
   display: flex;
   align-items: center;
 }
+li:hover {
+  background-color: rgba(237, 237, 237, 0.25);
+}
 li p {
   margin-left: 10px;
 }

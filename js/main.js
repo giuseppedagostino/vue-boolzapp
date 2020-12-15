@@ -117,15 +117,10 @@ var app = new Vue({
 
     // questo è l'utente selezionato, inizialmente vuoto
     selectedUser: {},
-    // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato
-    activeIndex: null,
+    // l'index di seguito verrà utilizzato per attribuire la classe active al contatto selezionato, l'ho inizializzato l'indice a zero perchè sennò crashava tutto rilevando l'indice null per comporre l'header della chat
+    activeIndex: 0,
     // definisco l'oggetto nuovo messaggio
     newMessageText: "",
-    newMessage: {
-      date: "boh",
-      // newMessageText: newMessageText,
-      status: "received",
-    }
 
   },
   methods: {

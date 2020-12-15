@@ -76,10 +76,11 @@
         <!-- chat header -->
         <header>
           <div>
-            <img src="img/_1.png" alt="avatar">
+            <img :src="'img/' + contacts[activeIndex].avatar + '.png'" alt="avatar">
             <div>
-              <p class="semibold">Gianluca</p>
-              <p>Ultimo accesso oggi alle 13:07</p>
+              <!-- utente nell'header della chat -->
+              <p class="semibold">{{ contacts[activeIndex].name }}</p>
+              <p>Ultimo accesso {{ contacts[activeIndex].messages[contacts[activeIndex].messages.length -1].date }}</p>
             </div>
           </div>
           <div>
